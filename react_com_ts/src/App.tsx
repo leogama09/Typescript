@@ -1,5 +1,8 @@
 import React from 'react';
 
+// 4- Importação de componentes
+import FirstComponent from './components/FirstComponent';
+
 function App() {
 
 // 1-Variáveis
@@ -24,6 +27,7 @@ const userGreeting = (name:string): string => {
         </div>
       )}
       <h3>{userGreeting(name)}</h3>
+      <FirstComponent />
     </div>
   );
 }
