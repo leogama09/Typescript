@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext} from 'react';
 
 // 4- Importação de componentes
 import FirstComponent from './components/FirstComponent';
@@ -14,6 +14,15 @@ import State from './components/State';
 type textOrNull = string | null
 
 type fixed = "Isso" | "Ou" | "Aquilo"
+
+// 9- context
+interface IAppContext {
+  language: string
+  framework: string
+  projects: number
+}
+
+export const AppContext = createContext<IAppContext | null>(null)
 
 function App() {
 
@@ -35,8 +44,16 @@ let mySecondText: textOrNull = null
 
 const testandoFixed:fixed = "Isso"
 
+// 9- context
+const contextValue = {
+  language:"JavaScript",
+  framework: "Express",
+  projects: 5,
+}
+
   return (
-    <div className="App">
+    <AppContext.Provider value={contextValue}>
+      <div className="App">
       <h1>React com TS</h1>
       <h2>Nome: {name}</h2>
       <p>Idade: {age}</p>
@@ -53,12 +70,13 @@ const testandoFixed:fixed = "Isso"
         content="Algum conteúdo" 
         commentsQty={10}
         tags={["ts", "js"]}
-        category={Category.P}
+        category={Category.TS}
       />
       <State />
       {myText && <p>Tem texto na variável</p>}
       {mySecondText && <p>Tem texto na variável</p>}
     </div>
+    </AppContext.Provider>
   );
 }
 
