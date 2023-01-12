@@ -7,6 +7,9 @@ import FirstComponent from './components/FirstComponent';
 import SecondComponent from './components/SecondComponent';
 import Destructuring from './components/Destructuring';
 
+// 6- useState
+import State from './components/State';
+
 function App() {
 
 // 1-Variáveis
@@ -39,6 +42,7 @@ const userGreeting = (name:string): string => {
         commentsQty={10}
         tags={["ts", "js"]}
       />
+      <State />
     </div>
   );
 }
