@@ -7,6 +7,11 @@ const name: string = "Leonardo"
 const age: number = 30
 const isWorking: boolean = true
 
+// 2- Funções
+const userGreeting = (name:string): string => {
+  return `Olá, ${name}! `
+}
+
 
   return (
     <div className="App">
@@ -14,8 +19,11 @@ const isWorking: boolean = true
       <h2>Nome: {name}</h2>
       <p>Idade: {age}</p>
       {isWorking && (
-        <p>Está trabalhando!</p>
+        <div>
+          <p>Está trabalhando!</p>
+        </div>
       )}
+      <h3>{userGreeting(name)}</h3>
     </div>
   );
 }
